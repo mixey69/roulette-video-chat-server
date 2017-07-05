@@ -16,6 +16,14 @@ import org.json.simple.JSONObject;
  */
 public class Server {
     private static volatile Server instance;
+    private static final Integer API_KEY = 45904292;
+    private static final String API_SECRET = "62bf4bd28897411ea9c3b8b1eda8f6bd429373d6";
+    
+    OpenTok opentok;
+    
+    String roomWithWaitingClientID;    
+    Boolean haveWaitingClients;
+    
 	
         public static Server getInstance() {
 		Server localInstance = instance;
@@ -30,16 +38,10 @@ public class Server {
 		return localInstance;
 	}
     
-    private static final Integer API_KEY = 45904292;
-    private static final String API_SECRET = "62bf4bd28897411ea9c3b8b1eda8f6bd429373d6";
-    
-    OpenTok opentok = new OpenTok(API_KEY,API_SECRET);
-    
-    String roomWithWaitingClientID;    
-    Boolean haveWaitingClients;
 
     private Server() {
         this.haveWaitingClients = false;
+        this.opentok = new OpenTok(API_KEY,API_SECRET);
     }
 
     public JSONObject onClientConnecting() throws OpenTokException{
