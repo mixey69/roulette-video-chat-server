@@ -16,8 +16,8 @@ import org.json.simple.JSONObject;
  */
 public class Server {
     private static volatile Server instance;
-    private static final Integer API_KEY = 45904292;
-    private static final String API_SECRET = "62bf4bd28897411ea9c3b8b1eda8f6bd429373d6";
+    private static final Integer API_KEY = 45946712;
+    private static final String API_SECRET = "d844e49ad558efdea046eeb9d0e0ea1848f40398";
     
     OpenTok opentok;
     
